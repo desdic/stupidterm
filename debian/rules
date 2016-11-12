@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+MAKEFLAGS = -rR
+
+TMPDIR = debian/tmp
+
+clean:
+	rm -rf debian/files '$(TMPDIR)'
+	$(MAKE) clean
+
+build:
+	$(MAKE) release
+
+binary:
+	mkdir -p '$(TMPDIR)/DEBIAN'
+	$(MAKE) DESTDIR='$(TMPDIR)' prefix=/usr install
+	dpkg-gencontrol -P'$(TMPDIR)' -v"$$(git describe --tags | sed -ne 's/-/./g;s/^v\(.*\)/\1/p')"
+	dpkg-deb -b '$(TMPDIR)' ..

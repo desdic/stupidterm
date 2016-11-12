@@ -1,0 +1,9 @@
+Source: stupidterm
+Maintainer: "Emil Renner Berthing" <esmil@mailme.dk>
+Build-Depends: libvte-2.91-dev,git,sed
+Homepage: https://github.com/esmil/stupidterm
+
+Package: stupidterm
+Architecture: any
+Depends: libvte-2.91-0
+Description: A Stupid Terminal based on VTE

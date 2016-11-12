@@ -1,4 +1,6 @@
-st
-pkg
-src
-*.pkg.tar.*
+/st
+/pkg/
+/src/
+/*.pkg.tar.*
+/debian/files
+/debian/tmp/
